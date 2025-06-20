@@ -1,0 +1,46 @@
+{
+    "project_name": "O3DETestProject",
+    "version": "1.0.0",
+    "project_id": "{3850E914-C004-4436-849C-319F07A627CB}",
+    "origin": "The primary repo for O3DETestProject goes here: i.e. http://www.mydomain.com",
+    "license": "What license O3DETestProject uses goes here: i.e. https://opensource.org/licenses/Apache-2.0 Or https://opensource.org/licenses/MIT etc.",
+    "display_name": "O3DETestProject",
+    "summary": "A short description of O3DETestProject.",
+    "canonical_tags": [
+        "Project"
+    ],
+    "user_tags": [
+        "O3DETestProject"
+    ],
+    "icon_path": "preview.png",
+    "engine": "o3de",
+    "external_subdirectories": [
+        "Gem"
+    ],
+    "restricted": "O3DETestProject",
+    "gem_names": [
+        "O3DETestProject",
+        "Atom",
+        "AudioSystem",
+        "CameraFramework",
+        "DebugDraw",
+        "DiffuseProbeGrid",
+        "EditorPythonBindings",
+        "EMotionFX",
+        "GameState",
+        "ImGui",
+        "LandscapeCanvas",
+        "LyShine",
+        "MiniAudio",
+        "PhysX",
+        "PrimitiveAssets",
+        "PrefabBuilder",
+        "SaveData",
+        "ScriptCanvasPhysics",
+        "ScriptEvents",
+        "StartingPointInput",
+        "TextureAtlas",
+        "WhiteBox",
+        "RemoteTools"
+    ]
+}
