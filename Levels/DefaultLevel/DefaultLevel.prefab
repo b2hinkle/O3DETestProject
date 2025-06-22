@@ -19,7 +19,8 @@
                 "$type": "EditorEntitySortComponent",
                 "Id": 14126657869720434043,
                 "Child Entity Order": [
-                    "Entity_[1176639161715]"
+                    "Entity_[1176639161715]",
+                    "Instance_[721146175561]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -552,6 +553,38 @@
                     "Id": 931091830724002070
                 }
             }
+        }
+    },
+    "Instances": {
+        "Instance_[721146175561]": {
+            "Source": "Prefabs/link.fbx.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -4.438928604125977
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -1.8763666152954104
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 1.1920928955078125e-7
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[1384467532320]/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 1.899999976158142
+                }
+            ]
         }
     }
 }
