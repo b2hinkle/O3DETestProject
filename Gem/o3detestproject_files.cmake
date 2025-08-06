@@ -4,4 +4,8 @@ set(FILES
     Include/O3DETestProject/O3DETestProjectTypeIds.h
     Source/O3DETestProjectSystemComponent.cpp
     Source/O3DETestProjectSystemComponent.h
+
+    Include/O3DETestProject/MyFirstInterface.h
+    Source/MyFirstComponent.cpp
+    Source/MyFirstComponent.h
 )
