@@ -403,7 +403,7 @@
                                     "guid": "{FD340C30-755C-5911-92A3-19A3F7A77931}",
                                     "subId": 281415304
                                 },
-                                "assetHint": "objects/shaderball/shaderball_default_1m.azmodel"
+                                "assetHint": "objects/shaderball/shaderball_default_1m.fbx.azmodel"
                             }
                         }
                     }
@@ -415,6 +415,18 @@
                 "Component_[9439770997198325425]": {
                     "$type": "EditorLockComponent",
                     "Id": 9439770997198325425
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 2035831154953556075
+                },
+                "MyFirstComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 15315641581252902114,
+                    "m_template": {
+                        "$type": "MyFirstComponent",
+                        "ActivateImmediately": true
+                    }
                 }
             }
         },

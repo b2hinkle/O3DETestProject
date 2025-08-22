@@ -4,11 +4,17 @@
 #include <AzCore/Component/Component.h>
 #include <O3DETestProject/MyFirstInterface.h>
 
+#include <AzCore/Math/Color.h>
+#include <AzCore/std/any.h>
+#include <AzCore/Component/TickBus.h>
+
+
 namespace O3DETestProject
 {
     class MyFirstComponent
         : public AZ::Component
         , public MyFirstRequestBus::Handler
+        , public AZ::TickBus::Handler
     {
     public:
         AZ_COMPONENT_DECL(MyFirstComponent);
@@ -76,5 +82,27 @@ namespace O3DETestProject
         * Deactivate() implementation can handle this scenario.
         */
         void Deactivate() override;
+        
+        void OnTick(float deltaTime, AZ::ScriptTimePoint time) override;
+
+    private:
+
+        void DoFlash() override;
+
+    private:
+
+        // capture the original state so you can restore it:
+        AZStd::any m_initialEmissiveEnabled;
+        AZStd::any m_initialEmissiveColor;
+        AZStd::any m_initialEmissiveIntensity;
+
+        // Properties displayed in the editor.
+        class AZ::Color m_color = { 1.0f, 1.0f, 1.0f, 1.0f };
+        float m_intensity = 5.0f;
+        float m_durationMilliseconds = 1.f;
+        bool m_activateImmediately = false;
+
+        // properties not serialized or displayed in the editor since they track immediate state
+        float m_tickTimeRemaining = 0.0f;
     };
 } // namespace O3DETestProject
