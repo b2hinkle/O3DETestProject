@@ -5,11 +5,11 @@
 
 namespace O3DETestProject
 {
-    class MyFirstRequests
+    class MaterialColorFlashRequests
         : public AZ::ComponentBus
     {
     public:
-        AZ_RTTI(O3DETestProject::MyFirstRequests, "{62A1327E-9A50-420D-AC50-F5411CF5C93E}");
+        AZ_RTTI(O3DETestProject::MaterialColorFlashRequests, "{62A1327E-9A50-420D-AC50-F5411CF5C93E}");
 
         // Put your public request methods here.
 
@@ -21,6 +21,6 @@ namespace O3DETestProject
         
     };
 
-    using MyFirstRequestBus = AZ::EBus<MyFirstRequests>;
+    using MaterialColorFlashRequestBus = AZ::EBus<MaterialColorFlashRequests>;
 
 } // namespace O3DETestProject

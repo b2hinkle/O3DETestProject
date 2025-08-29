@@ -2,22 +2,22 @@
 #pragma once
 
 #include <AzCore/Component/Component.h>
-#include <O3DETestProject/MyFirstInterface.h>
+#include <O3DETestProject/MaterialColorFlashInterface.h>
 
 #include <AzCore/Math/Color.h>
 #include <AzCore/std/any.h>
 #include <AzCore/Component/TickBus.h>
 
-
+// NOTE TODO: This component doesn't currently work, because it doesn't seem the get and set functions for the material works.
 namespace O3DETestProject
 {
-    class MyFirstComponent
+    class MaterialColorFlashComponent
         : public AZ::Component
-        , public MyFirstRequestBus::Handler
+        , public MaterialColorFlashRequestBus::Handler
         , public AZ::TickBus::Handler
     {
     public:
-        AZ_COMPONENT_DECL(MyFirstComponent);
+        AZ_COMPONENT_DECL(MaterialColorFlashComponent);
 
         /*
         * Reflects component data into the reflection contexts, including the serialization, edit, and behavior contexts.

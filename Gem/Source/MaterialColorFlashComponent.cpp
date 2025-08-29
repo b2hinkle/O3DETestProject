@@ -1,5 +1,5 @@
 
-#include "MyFirstComponent.h"
+#include "MaterialColorFlashComponent.h"
 
 #include <AzCore/Serialization/SerializeContext.h>
 #include <AzCore/Serialization/EditContext.h>
@@ -9,11 +9,11 @@
 
 namespace O3DETestProject
 {
-    AZ_COMPONENT_IMPL(MyFirstComponent, "MyFirstComponent", "{FA322119-225E-449B-8C07-93F89C46C1FA}");
+    AZ_COMPONENT_IMPL(MaterialColorFlashComponent, "MaterialColorFlashComponent", "{FA322119-225E-449B-8C07-93F89C46C1FA}");
 
-    void MyFirstComponent::Activate()
+    void MaterialColorFlashComponent::Activate()
     {
-        MyFirstRequestBus::Handler::BusConnect(GetEntityId());
+        MaterialColorFlashRequestBus::Handler::BusConnect(GetEntityId());
 
         if (m_activateImmediately)
         {
@@ -21,12 +21,12 @@ namespace O3DETestProject
         }
     }
 
-    void MyFirstComponent::Deactivate()
+    void MaterialColorFlashComponent::Deactivate()
     {
-        MyFirstRequestBus::Handler::BusDisconnect(GetEntityId());
+        MaterialColorFlashRequestBus::Handler::BusDisconnect(GetEntityId());
     }
 
-    void MyFirstComponent::OnTick(float deltaTime, AZ::ScriptTimePoint)
+    void MaterialColorFlashComponent::OnTick(float deltaTime, AZ::ScriptTimePoint)
     {
         using MaterialBus = AZ::Render::MaterialComponentRequestBus;
 
@@ -65,7 +65,7 @@ namespace O3DETestProject
 #endif
     }
 
-    void MyFirstComponent::DoFlash()
+    void MaterialColorFlashComponent::DoFlash()
     {
         if (!AZ::TickBus::Handler::BusIsConnected())
         {
@@ -88,65 +88,65 @@ namespace O3DETestProject
         m_tickTimeRemaining = m_durationMilliseconds;
     }
 
-    void MyFirstComponent::Reflect(AZ::ReflectContext* context)
+    void MaterialColorFlashComponent::Reflect(AZ::ReflectContext* context)
     {
         if (auto serializeContext = azrtti_cast<AZ::SerializeContext*>(context))
         {
-            serializeContext->Class<MyFirstComponent, AZ::Component>()
+            serializeContext->Class<MaterialColorFlashComponent, AZ::Component>()
                 ->Version(1)
 
-                ->Field("Color", &MyFirstComponent::m_color)
-                ->Field("Intensity", &MyFirstComponent::m_intensity)
-                ->Field("DurationMS", &MyFirstComponent::m_durationMilliseconds)
-                ->Field("ActivateImmediately", &MyFirstComponent::m_activateImmediately)
+                ->Field("Color", &MaterialColorFlashComponent::m_color)
+                ->Field("Intensity", &MaterialColorFlashComponent::m_intensity)
+                ->Field("DurationMS", &MaterialColorFlashComponent::m_durationMilliseconds)
+                ->Field("ActivateImmediately", &MaterialColorFlashComponent::m_activateImmediately)
                 ;
 
             if (AZ::EditContext* editContext = serializeContext->GetEditContext())
             {
-                editContext->Class<MyFirstComponent>("MyFirstComponent", "When this first super turbo epik component is triggered, flashes the emissive material property")
+                editContext->Class<MaterialColorFlashComponent>("MaterialColorFlashComponent", "When this first super turbo epik component is triggered, flashes the emissive material property")
                     ->ClassElement(AZ::Edit::ClassElements::EditorData, "")
                         ->Attribute(AZ::Edit::Attributes::Category, "ComponentCategory")
                         ->Attribute(AZ::Edit::Attributes::Icon, "Icons/Components/Component_Placeholder.svg")
                         ->Attribute(AZ::Edit::Attributes::AppearsInAddComponentMenu, AZ_CRC_CE("Game"))
 
-                    ->DataElement(AZ::Edit::UIHandlers::Color, &MyFirstComponent::m_color, "Color", "What color to apply to the material property")
-                    ->DataElement(AZ::Edit::UIHandlers::SpinBox, &MyFirstComponent::m_durationMilliseconds, "Duration (ms)", "How long the effect fades out over.")
+                    ->DataElement(AZ::Edit::UIHandlers::Color, &MaterialColorFlashComponent::m_color, "Color", "What color to apply to the material property")
+                    ->DataElement(AZ::Edit::UIHandlers::SpinBox, &MaterialColorFlashComponent::m_durationMilliseconds, "Duration (ms)", "How long the effect fades out over.")
                         ->Attribute(AZ::Edit::Attributes::Min, 50.0f)
                         ->Attribute(AZ::Edit::Attributes::Max, 10000.0f)
                         ->Attribute(AZ::Edit::Attributes::Step, 50.0f)
                         ->Attribute(AZ::Edit::Attributes::Suffix, "ms")
-                    ->DataElement(AZ::Edit::UIHandlers::SpinBox, &MyFirstComponent::m_intensity, "Intensity", "Light emissive intensity")
+                    ->DataElement(AZ::Edit::UIHandlers::SpinBox, &MaterialColorFlashComponent::m_intensity, "Intensity", "Light emissive intensity")
                         ->Attribute(AZ::Edit::Attributes::Min, 0.1f)
                         ->Attribute(AZ::Edit::Attributes::Max, 100.0f)
                         ->Attribute(AZ::Edit::Attributes::Step, 0.25f)
-                    ->DataElement(AZ::Edit::UIHandlers::Default, &MyFirstComponent::m_activateImmediately, "Immediately Activate on start", "If checked, it will start on activate")
+                    ->DataElement(AZ::Edit::UIHandlers::Default, &MaterialColorFlashComponent::m_activateImmediately, "Immediately Activate on start", "If checked, it will start on activate")
                     ;
             }
         }
 
         if (AZ::BehaviorContext* behaviorContext = azrtti_cast<AZ::BehaviorContext*>(context))
         {
-            behaviorContext->Class<MyFirstComponent>("MyFirst Component Group")
+            behaviorContext->Class<MaterialColorFlashComponent>("MaterialColorFlash Component Group")
                 ->Attribute(AZ::Script::Attributes::Category, "O3DETestProject Gem Group")
                 ;
         }
     }
 
-    void MyFirstComponent::GetProvidedServices(AZ::ComponentDescriptor::DependencyArrayType& provided)
+    void MaterialColorFlashComponent::GetProvidedServices(AZ::ComponentDescriptor::DependencyArrayType& provided)
     {
-        provided.push_back(AZ_CRC_CE("MyFirstComponentService"));
+        provided.push_back(AZ_CRC_CE("MaterialColorFlashComponentService"));
     }
 
-    void MyFirstComponent::GetIncompatibleServices([[maybe_unused]] AZ::ComponentDescriptor::DependencyArrayType& incompatible)
+    void MaterialColorFlashComponent::GetIncompatibleServices([[maybe_unused]] AZ::ComponentDescriptor::DependencyArrayType& incompatible)
     {
     }
 
-    void MyFirstComponent::GetRequiredServices([[maybe_unused]] AZ::ComponentDescriptor::DependencyArrayType& required)
+    void MaterialColorFlashComponent::GetRequiredServices([[maybe_unused]] AZ::ComponentDescriptor::DependencyArrayType& required)
     {
         required.push_back(AZ_CRC_CE("MaterialProviderService"));
     }
 
-    void MyFirstComponent::GetDependentServices([[maybe_unused]] AZ::ComponentDescriptor::DependencyArrayType& dependent)
+    void MaterialColorFlashComponent::GetDependentServices([[maybe_unused]] AZ::ComponentDescriptor::DependencyArrayType& dependent)
     {
     }
 } // namespace O3DETestProject

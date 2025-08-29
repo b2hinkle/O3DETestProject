@@ -3,7 +3,7 @@
 #include <AzCore/Module/Module.h>
 
 #include "O3DETestProjectSystemComponent.h"
-#include "MyFirstComponent.h"
+#include "MaterialColorFlashComponent.h"
 
 #include <O3DETestProject/O3DETestProjectTypeIds.h>
 
@@ -23,7 +23,7 @@ namespace O3DETestProject
             m_descriptors.insert(m_descriptors.end(), {
                 O3DETestProjectSystemComponent::CreateDescriptor(),
 
-                MyFirstComponent::CreateDescriptor(),
+                MaterialColorFlashComponent::CreateDescriptor(),
             });
         }
 
