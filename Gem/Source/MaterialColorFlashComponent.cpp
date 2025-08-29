@@ -103,7 +103,7 @@ namespace O3DETestProject
 
             if (AZ::EditContext* editContext = serializeContext->GetEditContext())
             {
-                editContext->Class<MaterialColorFlashComponent>("MaterialColorFlashComponent", "When this first super turbo epik component is triggered, flashes the emissive material property")
+                editContext->Class<MaterialColorFlashComponent>("MaterialColorFlashComponent", "When this is triggered, flashes the emissive material property")
                     ->ClassElement(AZ::Edit::ClassElements::EditorData, "")
                         ->Attribute(AZ::Edit::Attributes::Category, "ComponentCategory")
                         ->Attribute(AZ::Edit::Attributes::Icon, "Icons/Components/Component_Placeholder.svg")

@@ -419,14 +419,6 @@
                 "EditorMaterialComponent": {
                     "$type": "EditorMaterialComponent",
                     "Id": 2035831154953556075
-                },
-                "MaterialColorFlashComponent": {
-                    "$type": "GenericComponentWrapper",
-                    "Id": 15315641581252902114,
-                    "m_template": {
-                        "$type": "MaterialColorFlashComponent",
-                        "ActivateImmediately": true
-                    }
                 }
             }
         },
