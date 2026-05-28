@@ -20,10 +20,10 @@
     "icon_path": "preview.png",
     "requirements": "",
     "documentation_url": "",
-    "dependencies": [
-    ],
-    "compatible_engines": [
-    ],
-    "engine_api_dependencies":[
+    "dependencies": [],
+    "compatible_engines": [],
+    "engine_api_dependencies": [],
+    "external_subdirectories": [
+        "RenderLayers"
     ]
 }
