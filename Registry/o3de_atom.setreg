@@ -1,0 +1,13 @@
+{
+    "O3DE": {
+        "Atom": {
+            "RHI": {
+                "FactoryManager": {
+                    "factoriesPriority": [
+                        "vulkan"
+                    ]
+                }
+            }
+        }
+    }
+}
